@@ -6,6 +6,7 @@ import com.squareup.javapoet.TypeSpec;
 import org.jsoup.Jsoup;
 import org.jsoup.nodes.Document;
 import org.junit.Test;
+import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 
 import javax.lang.model.element.Modifier;
@@ -96,6 +97,7 @@ public class ConvertTest {
     private static MethodSpec createElement(String name, String selector) {
         return MethodSpec.methodBuilder(name)
                 .addModifiers(Modifier.PUBLIC,Modifier.STATIC)
+                .addParameter(WebDriver.class, "driver")
                 .returns(WebElement.class)
                 .addStatement("return driver.findElement(By.cssSelector(\""+selector+"\")")
                 .build();
