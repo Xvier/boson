@@ -16,9 +16,10 @@ public class ParsedDocument {
 
     public ParsedDocument(Document doc) {
         this.doc = doc;
+        selectionRules.add(new NameSelectionRule());
         selectionRules.add(new TagSelectionRule());
         selectionRules.add(new IdSelectionRule());
-        selectionRules.add(new NameSelectionRule());
+
     }
 
 

@@ -35,6 +35,7 @@ public class ParserTest {
         assertThat(elements.size(), is(2));
 
         assertThat(elements.get(0).getSelector(), is("input[name=foo]"));
+        System.out.println(elements.get(0).getSelector());
         assertThat(elements.get(1).getSelector(), is("input[name=bar]"));
     }
 
@@ -45,10 +46,29 @@ public class ParserTest {
 
         assertThat(elements.size(), is(4));
 
-        assertThat(elements.get(0).getSelector(), is("input"));
+        assertThat(elements.get(0).getSelector(), is("input[name=foo]"));
         assertThat(elements.get(1).getSelector(), is("button"));
         assertThat(elements.get(2).getSelector(), is("a"));
         assertThat(elements.get(3).getSelector(), is("textarea"));
+
+        for(int i=0; i<elements.size();i++){
+            System.out.println(elements.get(i).getSelector());
+
+        }
+
+    }
+
+    @Test
+    public void shouldIdentifyInputFieldById() throws IOException {
+
+        ParsedDocument doc = parseDocument(new File("src/test/resources/idInputFields.html"));
+        List<ParsedElement> elements = doc.getElements();
+
+        assertThat(elements.size(), is(2));
+
+        assertThat(elements.get(0).getSelector(), is("#fooId"));
+        System.out.println(elements.get(0).getSelector());
+        assertThat(elements.get(1).getSelector(), is("input[name=barName]"));
     }
 
 
