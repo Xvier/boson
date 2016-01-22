@@ -24,7 +24,7 @@ public class ParserTest {
         List<ParsedElement> elements = doc.getElements();
 
         assertThat(elements.size(), is(1));
-        assertThat(elements.get(0).name(), is("input"));
+        assertThat(elements.get(0).getSelector(), is("input"));
     }
 
     @Test
@@ -34,8 +34,8 @@ public class ParserTest {
 
         assertThat(elements.size(), is(2));
 
-        assertThat(elements.get(0).name(), is("input[name=foo]"));
-        assertThat(elements.get(1).name(), is("input[name=bar]"));
+        assertThat(elements.get(0).getSelector(), is("input[name=foo]"));
+        assertThat(elements.get(1).getSelector(), is("input[name=bar]"));
     }
 
     private ParsedDocument parseDocument(File input) throws IOException {
