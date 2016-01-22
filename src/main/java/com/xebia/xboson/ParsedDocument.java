@@ -16,6 +16,7 @@ public class ParsedDocument {
 
     public ParsedDocument(Document doc) {
         this.doc = doc;
+
         selectionRules.add(new NameSelectionRule());
         selectionRules.add(new TagSelectionRule());
         selectionRules.add(new IdSelectionRule());
@@ -32,7 +33,7 @@ public class ParsedDocument {
         return elements.stream().map(this::match).filter(e -> e != null).collect(Collectors.toList());
     }
 
-    ParsedElement match(Element e) {
+    private ParsedElement match(Element e) {
         for (SelectionRule rule : selectionRules) {
             Optional<ParsedElement> m = rule.match(doc, e);
             if (m.isPresent()) {

@@ -74,7 +74,7 @@ public class ParserTest {
 
 
     private ParsedDocument parseDocument(File input) throws IOException {
-        Document doc = Jsoup.parse(input, "UTF-8", "http://example.com/");
+        Document doc = Jsoup.parse(input, "UTF-8");
         return new ParsedDocument(doc);
     }
 }
