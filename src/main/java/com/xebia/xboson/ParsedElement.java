@@ -2,9 +2,6 @@ package com.xebia.xboson;
 
 import org.jsoup.nodes.Element;
 
-/**
- * Created by xviuda on 22-01-16.
- */
 public class ParsedElement {
     private final String identifier;
     private final String selector;

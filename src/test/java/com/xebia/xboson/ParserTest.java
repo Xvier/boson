@@ -38,6 +38,19 @@ public class ParserTest {
         assertThat(elements.get(1).getSelector(), is("input[name=bar]"));
     }
 
+    @Test
+    public void supportedTags() throws IOException {
+        ParsedDocument doc = parseDocument(new File("src/test/resources/supportedFields.html"));
+        List<ParsedElement> elements = doc.getElements();
+
+        assertThat(elements.size(), is(4));
+
+        assertThat(elements.get(0).getSelector(), is("input"));
+        assertThat(elements.get(1).getSelector(), is("button"));
+        assertThat(elements.get(2).getSelector(), is("a"));
+        assertThat(elements.get(3).getSelector(), is("textarea"));
+    }
+
 
 
     private ParsedDocument parseDocument(File input) throws IOException {

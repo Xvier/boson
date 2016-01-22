@@ -10,9 +10,6 @@ import java.util.List;
 import java.util.Optional;
 import java.util.stream.Collectors;
 
-/**
- * Created by xviuda on 22-01-16.
- */
 public class ParsedDocument {
     private List<SelectionRule> selectionRules = new ArrayList<>();
     private final Document doc;
@@ -20,12 +17,13 @@ public class ParsedDocument {
     public ParsedDocument(Document doc) {
         this.doc = doc;
         selectionRules.add(new TagSelectionRule());
+        selectionRules.add(new IdSelectionRule());
         selectionRules.add(new NameSelectionRule());
     }
 
 
     public List<ParsedElement> getElements() {
-        Elements elements = doc.getElementsByTag("input");
+        Elements elements = doc.select("input, button, a, textarea");
 
 
         // Apply rules to make elements unique
