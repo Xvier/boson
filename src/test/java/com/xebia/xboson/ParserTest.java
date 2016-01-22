@@ -20,16 +20,22 @@ public class ParserTest {
 
     @Test
     public void shouldParseADocument() throws IOException {
-
-        // Parser document parsertest.html
         ParsedDocument doc = parseDocument(new File("src/test/resources/parsertest.html"));
-
-        // Vraag om gevonden elementen
         List<ParsedElement> elements = doc.getElements();
-        // Elementen bevat input@name=foo
-        assertThat(elements.size(), is(1));
-        assertThat(elements.get(0).name(), is("input@name=foo"));
 
+        assertThat(elements.size(), is(1));
+        assertThat(elements.get(0).name(), is("input"));
+    }
+
+    @Test
+    public void shouldIdentifyInputFieldsOnName() throws IOException {
+        ParsedDocument doc = parseDocument(new File("src/test/resources/twoInputFields.html"));
+        List<ParsedElement> elements = doc.getElements();
+
+        assertThat(elements.size(), is(2));
+
+        assertThat(elements.get(0).name(), is("input[name=foo]"));
+        assertThat(elements.get(1).name(), is("input[name=bar]"));
     }
 
     private ParsedDocument parseDocument(File input) throws IOException {

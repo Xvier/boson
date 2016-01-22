@@ -1,6 +1,7 @@
 package com.xebia.xboson;
 
 import org.jsoup.nodes.Document;
+import org.jsoup.nodes.Element;
 import org.jsoup.select.Elements;
 
 import java.util.Collection;
@@ -20,6 +21,18 @@ public class ParsedDocument {
 
     public List<ParsedElement> getElements() {
         Elements elements = doc.getElementsByTag("input");
-        return elements.stream().map(ParsedElement::new).collect(Collectors.toList());
+
+
+        // Apply rules to make elements unique
+
+        return elements.stream().map(e -> new ParsedElement(identifier(e), selector(e))).collect(Collectors.toList());
+    }
+
+    private String selector(Element e) {
+        return null;
+    }
+
+    private String identifier(Element e) {
+        return null;
     }
 }

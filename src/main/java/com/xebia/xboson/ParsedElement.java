@@ -6,13 +6,20 @@ import org.jsoup.nodes.Element;
  * Created by xviuda on 22-01-16.
  */
 public class ParsedElement {
-    private final Element element;
+    private final String identifier;
+    private final String selector;
 
-    public ParsedElement(Element e) {
-        this.element = e;
+    public ParsedElement(String identifier, String selector) {
+
+        this.identifier = identifier;
+        this.selector = selector;
     }
 
-    public String name() {
-        return element.tagName() + "@name=" + element.attr("name");
+    public String getIdentifier() {
+        return identifier;
+    }
+
+    public String getSelector() {
+        return selector;
     }
 }
