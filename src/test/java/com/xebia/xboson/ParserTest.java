@@ -24,7 +24,7 @@ public class ParserTest {
         List<ParsedElement> elements = doc.getElements();
 
         assertThat(elements.size(), is(1));
-        assertThat(elements.get(0).getSelector(), is("input"));
+        assertThat(elements.get(0).getSelector(), is("input[name=testname]"));
     }
 
     @Test
