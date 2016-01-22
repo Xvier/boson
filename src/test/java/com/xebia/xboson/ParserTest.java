@@ -38,6 +38,8 @@ public class ParserTest {
         assertThat(elements.get(1).getSelector(), is("input[name=bar]"));
     }
 
+
+
     private ParsedDocument parseDocument(File input) throws IOException {
         Document doc = Jsoup.parse(input, "UTF-8", "http://example.com/");
         return new ParsedDocument(doc);
