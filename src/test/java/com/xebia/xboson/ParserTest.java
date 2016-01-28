@@ -34,6 +34,7 @@ public class ParserTest {
 
         assertThat(elements.size(), is(2));
 
+
         assertThat(elements.get(0).getSelector(), is("input[name=foo]"));
         System.out.println(elements.get(0).getSelector());
         assertThat(elements.get(1).getSelector(), is("input[name=bar]"));
