@@ -2,14 +2,28 @@ group 'com.xebia'
 version '1.0-SNAPSHOT'
 
 apply plugin: 'java'
+apply plugin: "kotlin"
 
+buildscript {
+    ext.kotlin_version = '1.0.0'
+
+    repositories {
+        mavenCentral()
+    }
+
+    dependencies {
+        classpath "org.jetbrains.kotlin:kotlin-gradle-plugin:$kotlin_version"
+    }
+}
 sourceCompatibility = 1.8
 
 repositories {
     mavenCentral()
 }
 
+
 dependencies {
+    compile "org.jetbrains.kotlin:kotlin-stdlib:$kotlin_version"
     compile 'org.jsoup:jsoup:1.8.1'
     compile 'com.squareup:javapoet:1.5.1'
     compile 'org.seleniumhq.selenium:selenium-java:2.49.1'

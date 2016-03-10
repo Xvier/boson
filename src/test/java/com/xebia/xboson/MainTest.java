@@ -7,6 +7,6 @@ public class MainTest {
 
     @Test
     public void runMain() throws IOException {
-        Main.main("src/test/resources/parsertest.html");
+        Main.main(new String[] { "src/test/resources/parsertest.html" });
     }
 }

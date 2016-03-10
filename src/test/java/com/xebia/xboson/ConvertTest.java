@@ -1,19 +1,17 @@
 package com.xebia.xboson;
 
-import com.squareup.javapoet.JavaFile;
-import com.squareup.javapoet.MethodSpec;
-import com.squareup.javapoet.TypeSpec;
+import java.io.File;
+import java.io.IOException;
+import java.util.List;
+import javax.lang.model.element.Modifier;
 import org.jsoup.Jsoup;
 import org.jsoup.nodes.Document;
 import org.junit.Test;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
-
-import javax.lang.model.element.Modifier;
-import java.io.File;
-import java.io.IOException;
-
-import java.util.List;
+import com.squareup.javapoet.JavaFile;
+import com.squareup.javapoet.MethodSpec;
+import com.squareup.javapoet.TypeSpec;
 
 import static org.hamcrest.CoreMatchers.is;
 import static org.junit.Assert.assertThat;
