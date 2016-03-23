@@ -3,7 +3,7 @@ package examples
 import org.junit.Test
 import org.junit.Assert.assertThat
 import org.hamcrest.CoreMatchers.`is`
-import org.hamcrest.CoreMatchers.equalTo
+import org.hamcrest.CoreMatchers.equalTo as eq
 
 class Examples {
 
@@ -23,7 +23,7 @@ class Examples {
         val (result, status) = function()
 
         assertThat(result, `is`(3))
-        assertThat(status, equalTo("foo"))
+        assertThat(status, eq("foo"))
 
     }
 
@@ -46,10 +46,25 @@ class Examples {
             is ChildrenType.Moe -> { type.moe }
         }
 
-        assertThat(function(ChildrenType.Meeny(42)), equalTo(84))
-        assertThat(function(ChildrenType.Miny("some text")), equalTo(9))
+        assertThat(function(ChildrenType.Meeny(42)), eq(84))
+        assertThat(function(ChildrenType.Miny("some text")), eq(9))
 
     }
+
+    // --------------------------------------------------
+
+
+    @Test
+    fun extensionFunctions() {
+        fun <E> List<E>.random(): Int {
+            return 1; // some random index
+        }
+
+        val a = listOf(1,2,3)
+
+        assertThat(a.random(), eq(1));
+    }
+
 
     // --------------------------------------------------
 
@@ -63,7 +78,7 @@ class Examples {
 
         // Collection types are immutable by default
         val d: List<String> = listOf("Foo") // try mutableListOf()
-        assertThat(d.first(), equalTo("Foo"))
+        assertThat(d.first(), eq("Foo"))
     }
 
     class FooClass()

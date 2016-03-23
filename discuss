@@ -8,7 +8,9 @@
 
 Examples:
 * backtick to deal with functions named as literals
+* rename imported elements
 * sealed classes // final-by-default vs open
 * case matching (sealed vs non-sealed)
 * class vs object
 * collections and mutability
+* extensions to counter -Util classes.
