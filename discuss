@@ -1,0 +1,14 @@
+
+* var vs val
+* explicit return stmt
+* parentheses not optional (like Gradle, Scala), only for closures
+* Main object vs MainTK (toplevel function)
+* map/filter returns a list (lazy eval with asSequence)
+* C# getter syntax
+
+Examples:
+* backtick to deal with functions named as literals
+* sealed classes // final-by-default vs open
+* case matching (sealed vs non-sealed)
+* class vs object
+* collections and mutability
